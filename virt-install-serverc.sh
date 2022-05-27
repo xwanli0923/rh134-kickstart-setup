@@ -1,8 +1,10 @@
 #!/bin/bash
+# virt-install-serverc
 # add dns records
 echo -e "Setting bastion dns...\n"
 sleep 1
-rsync -P hosts root@bastion:/etc/hosts >/dev/null
+rsync -P /etc/hosts root@bastion:/etc/hosts >/dev/null
+ssh root@bastion "echo '172.25.250.12 serverc.lab.example.com serverc' >> /etc/hosts "
 ssh root@bastion "systemctl restart dnsmasq.service"  >/dev/null
 # add a new virtual machine serverc
 echo -e "Add a new virtual machine serverc...\n"
@@ -26,7 +28,7 @@ virt-install \
 	--name serverc \
 	--memory 2048 \
 	--vcpus 2 \
-	--disk /var/lib/libvirt/images/servere-vda.qcow2,size=10,format=qcow2,target.bus=virtio \
+	--disk /var/lib/libvirt/images/serverc-vda.qcow2,size=10,format=qcow2,target.bus=virtio \
 	--network network=privbr0,mac.address=52:54:00:00:fa:0c,model=virtio \
 	--graphics type=spice,listen=127.0.0.1 \
 	--noautoconsole \
