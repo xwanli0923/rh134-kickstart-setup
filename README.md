@@ -35,6 +35,7 @@ cd lab-pxekickstart/
 ```
 4. 回退到 `foundation`,创建新的虚拟机`serverc`
  ```bash
+ # 执行 virt-install-server*.sh 之前，请删除目录下的`.git`
  ./virt-install-serverc.sh
  ```
  在打开的 `console` 中，选择**Install RHEL8.2 by Kickstart*
