@@ -37,7 +37,7 @@ cd lab-pxekickstart/
  ```bash
  ./virt-install-serverc.sh
  ```
- 在打开的 `console` 中，选择**Install RHEL8.2 by Kickstart*
+ 在打开的 `console` 中，选择 **Install serverc.lab.example.com**
 
 #### 作者
 **邢万里 | Augus_Hsing**

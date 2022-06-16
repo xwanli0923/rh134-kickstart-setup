@@ -1,0 +1,22 @@
+subnet 172.25.250.0 netmask 255.255.255.0 {
+  range 172.25.250.12 172.25.250.15;
+  option domain-name-servers 172.25.250.254;
+  option domain-name "lab.example.com";
+  option routers 172.25.250.254;
+  option broadcast-address 172.25.250.255;
+  default-lease-time 600;
+  max-lease-time 7200;
+  next-server 172.25.250.10;
+  filename "pxelinux.0";
+}
+
+
+host serverc {
+  hardware ethernet 52:54:00:00:fa:0c;
+  fixed-address 172.25.250.12;
+}
+
+host servere {
+  hardware ethernet 52:54:00:00:fa:0e;
+  fixed-address 172.25.250.14;
+}
